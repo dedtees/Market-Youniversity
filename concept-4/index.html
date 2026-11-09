@@ -3,182 +3,290 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Market Youniversity · Concept 4: Learning path</title>
-<meta name="description" content="Learn it. Practice it. Own the room.">
+<title>Market Youniversity · Learn it. Practice it. Own the room.</title>
+<meta name="description" content="A training hub for presenters and teams: free community, live workshops, and skills that unlock as you grow.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500;700;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#120c2c;--bg2:#1b1340;--card:#221a4d;--ink:#f3f0ff;--muted:#a59fc9;--violet:#8b6cff;--cyan:#2de2ff;--lime:#b8ff3c;--pink:#ff4fd8;--pad:clamp(20px,4vw,60px)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Bricolage Grotesque",system-ui,sans-serif;font-size:18px;line-height:1.55;overflow-x:clip}
+a{color:inherit}
+.mono{font-family:"Space Mono",monospace;font-size:13px;letter-spacing:.06em;text-transform:uppercase}
+.btn{display:inline-flex;align-items:center;gap:10px;font-weight:700;text-decoration:none;padding:15px 24px;border-radius:14px;font-size:16px;transition:transform .15s,box-shadow .15s;border:0;cursor:pointer;font-family:inherit}
+.btn:hover{transform:translateY(-3px)}
+.btn-lime{background:var(--lime);color:#14102a;box-shadow:0 6px 0 #6fa514}
+.btn-lime:hover{box-shadow:0 9px 0 #6fa514}
+.btn-line{border:2px solid rgba(243,240,255,.3);color:var(--ink)}
+.btn-line:hover{border-color:var(--cyan);color:var(--cyan)}
+.grad{background:linear-gradient(90deg,var(--cyan),var(--violet),var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent}
+
+header{display:flex;justify-content:space-between;align-items:center;padding:20px var(--pad);position:relative;z-index:20}
+.logo{display:flex;gap:10px;align-items:center;text-decoration:none;font-weight:800;font-size:20px;letter-spacing:-.02em}
+.logo i{width:34px;height:34px;border-radius:10px;background:conic-gradient(from 200deg,var(--cyan),var(--violet),var(--pink),var(--lime),var(--cyan));display:grid;place-items:center;font-style:normal;color:#120c2c;font-weight:800;font-size:18px}
+nav.main{display:flex;gap:26px;align-items:center;font-weight:600;font-size:15px}
+nav.main a{text-decoration:none;color:var(--muted)}
+nav.main a:hover{color:var(--ink)}
+nav.main .btn{color:#14102a;padding:10px 18px}
+.menu{display:none;background:var(--card);border:0;color:var(--ink);border-radius:10px;padding:9px 14px;font:700 14px "Bricolage Grotesque"}
+@media(max-width:900px){.menu{display:block}nav.main{display:none;position:absolute;top:74px;left:16px;right:16px;background:var(--bg2);border-radius:18px;padding:20px;flex-direction:column;align-items:stretch}nav.main.open{display:flex}}
+
+/* Hero */
+.hero{position:relative;padding:clamp(50px,7vw,100px) var(--pad) 80px;text-align:center;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 20%,rgba(139,108,255,.35),transparent 40%),radial-gradient(circle at 85% 30%,rgba(45,226,255,.22),transparent 40%),radial-gradient(circle at 50% 100%,rgba(255,79,216,.22),transparent 45%);pointer-events:none}
+.hero::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:48px 48px;mask:radial-gradient(ellipse at center,#000 30%,transparent 75%);pointer-events:none}
+.hero > *{position:relative;z-index:1}
+.pill{display:inline-flex;gap:8px;align-items:center;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);padding:8px 14px;border-radius:999px;margin-bottom:28px}
+.pill b{width:8px;height:8px;border-radius:50%;background:var(--lime);box-shadow:0 0 10px var(--lime)}
+h1{font-weight:800;font-size:clamp(52px,9vw,150px);line-height:.9;letter-spacing:-.05em;margin:0 0 28px}
+h1 span{display:block}
+h1 .w1{color:var(--cyan)}h1 .w2{color:var(--violet)}h1 .w3{color:var(--lime)}
+.hero .lede{max-width:44ch;margin:0 auto 40px;color:#cfc9ee;font-size:clamp(18px,1.6vw,22px)}
+.toast{position:absolute;z-index:2;background:rgba(34,26,77,.92);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(8px);border-radius:16px;padding:12px 16px;display:flex;gap:12px;align-items:center;text-align:left;font-size:14px;box-shadow:0 20px 40px rgba(0,0,0,.35);animation:float 6s ease-in-out infinite}
+.toast .ic{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;flex:none}
+.toast .ic svg{width:20px;height:20px;fill:#14102a}
+.toast b{display:block;font-size:15px}
+.toast small{color:var(--muted)}
+.t1{left:4%;top:24%}.t1 .ic{background:var(--lime)}
+.t2{right:3%;top:34%;animation-delay:-2s}.t2 .ic{background:var(--cyan)}
+.t3{right:7%;top:12%;animation-delay:-4s}.t3 .ic{background:var(--pink)}
+@keyframes float{50%{transform:translateY(-12px)}}
+@media(max-width:1100px){.toast{display:none}}
+
+/* Start picker */
+.picker{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:1100px;margin:0 auto;text-align:left}
+@media(max-width:860px){.picker{grid-template-columns:1fr}}
+.pick{background:var(--card);border:2px solid transparent;border-radius:20px;padding:24px;text-decoration:none;transition:transform .2s,border-color .2s,background .2s;position:relative;overflow:hidden}
+.pick:hover{transform:translateY(-6px);border-color:var(--c)}
+.pick .key{display:inline-grid;place-items:center;width:36px;height:36px;border-radius:9px;background:var(--c);color:#14102a;font-weight:800;margin-bottom:16px;box-shadow:0 4px 0 rgba(0,0,0,.35)}
+.pick h3{margin:0 0 6px;font-size:22px;letter-spacing:-.02em;line-height:1.15}
+.pick p{margin:0 0 14px;color:var(--muted);font-size:16px}
+.pick .go{font-weight:700;color:var(--c)}
+
+/* Clients */
+.clients{display:flex;flex-wrap:wrap;justify-content:center;gap:12px 46px;padding:36px var(--pad);border-block:1px solid rgba(255,255,255,.08);align-items:center}
+.clients span{font-weight:800;font-size:clamp(22px,2.6vw,32px);letter-spacing:-.02em;color:#6f68a0}
+.clients span.mono{color:var(--muted);font-weight:400;font-size:13px;letter-spacing:.06em}
+
+section{padding:clamp(70px,10vw,140px) var(--pad)}
+.kick{color:var(--cyan);margin-bottom:16px;display:block}
+h2{font-weight:800;font-size:clamp(40px,5.6vw,88px);line-height:.95;letter-spacing:-.045em;margin:0 0 22px}
+.sub{color:#cfc9ee;font-size:20px;max-width:48ch}
+
+/* Level map */
+.map{position:relative;margin-top:70px;display:grid;gap:26px;max-width:1000px}
+.map::before{content:"";position:absolute;left:39px;top:40px;bottom:40px;width:4px;border-radius:4px;background:linear-gradient(var(--lime),var(--cyan),var(--violet),var(--pink))}
+.lvl{position:relative;display:grid;grid-template-columns:82px 1fr;gap:26px;align-items:center}
+.node{width:82px;height:82px;border-radius:22px;display:grid;place-items:center;font-weight:800;font-size:28px;color:#14102a;position:relative;z-index:1;box-shadow:0 6px 0 rgba(0,0,0,.35);transform:rotate(-6deg)}
+.lvl:nth-child(even) .node{transform:rotate(6deg)}
+.lvl .panel{background:var(--card);border-radius:20px;padding:24px 26px;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center;border:1px solid rgba(255,255,255,.06);transition:border-color .2s,transform .2s}
+.lvl:hover .panel{border-color:var(--c);transform:translateX(6px)}
+.lvl .panel h3{margin:0 0 4px;font-size:clamp(22px,2.4vw,30px);letter-spacing:-.03em;line-height:1.1}
+.lvl .panel p{margin:0;color:var(--muted)}
+.lvl .tagline{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+.chip{font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:4px 8px;border-radius:6px;background:rgba(255,255,255,.08)}
+.chip.c{background:var(--c);color:#14102a;font-weight:700}
+@media(max-width:700px){.lvl{grid-template-columns:60px 1fr;gap:16px}.node{width:60px;height:60px;font-size:20px;border-radius:16px}.map::before{left:28px}.lvl .panel{grid-template-columns:1fr}}
+
+/* Unlock showcase */
+.unlock{background:var(--bg2);display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;border-radius:36px;margin:0 var(--pad);padding:clamp(40px,6vw,80px)}
+@media(max-width:900px){.unlock{grid-template-columns:1fr;margin:0 12px}}
+.server{background:#0d0920;border-radius:20px;padding:20px;font-size:16px;border:1px solid rgba(255,255,255,.08)}
+.server .top{display:flex;justify-content:space-between;align-items:center;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,.08);font-weight:800}
+.server .xp{height:8px;border-radius:8px;background:rgba(255,255,255,.08);margin:14px 0 4px;overflow:hidden}
+.server .xp i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--lime),var(--cyan));border-radius:8px;transition:width 1.6s cubic-bezier(.2,.8,.2,1)}
+.server.in .xp i{width:62%}
+.server .grp{color:#6f68a0;margin:16px 0 6px}
+.server .ch{display:flex;justify-content:space-between;align-items:center;padding:8px 10px;border-radius:10px;color:#cfc9ee}
+.server .ch.on{background:rgba(184,255,60,.12);color:var(--lime);font-weight:700}
+.server .ch.lock{color:#5d5687}
+.server svg{width:15px;height:15px;fill:currentColor}
+.perks{list-style:none;padding:0;margin:26px 0 30px;display:grid;gap:12px}
+.perks li{display:flex;gap:14px;align-items:flex-start}
+.perks b{flex:none;width:28px;height:28px;border-radius:8px;display:grid;place-items:center;background:var(--violet);color:#fff;font-size:14px}
+
+/* Teams */
+.teams-head{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:end}
+@media(max-width:900px){.teams-head{grid-template-columns:1fr}}
+.modes{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:50px}
+@media(max-width:900px){.modes{grid-template-columns:1fr}}
+.mode{background:var(--card);border-radius:22px;padding:28px;border-top:5px solid var(--c)}
+.mode h3{margin:10px 0 8px;font-size:24px;letter-spacing:-.03em}
+.mode p{margin:0;color:var(--muted)}
+.flow{display:flex;flex-wrap:wrap;gap:10px;margin-top:40px;align-items:center}
+.flow span{padding:10px 16px;border-radius:12px;background:rgba(255,255,255,.06);font-weight:700}
+.flow em{color:var(--muted);font-style:normal}
+.tops{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+.tops span{padding:9px 15px;border-radius:999px;border:1px solid rgba(255,255,255,.16);font-size:15px}
+
+/* Quote */
+.quote{text-align:center}
+.quote .bubble{max-width:900px;margin:0 auto;background:linear-gradient(135deg,var(--violet),var(--pink));border-radius:36px 36px 36px 8px;padding:clamp(34px,5vw,60px);font-size:clamp(26px,3.4vw,46px);font-weight:700;letter-spacing:-.03em;line-height:1.12;text-align:left}
+.quote .who{margin-top:18px;color:var(--muted)}
+.ph{display:inline-block;border:1px dashed var(--muted);border-radius:6px;padding:2px 8px;margin-top:10px}
+
+/* Family */
+.fam{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+@media(max-width:900px){.fam{grid-template-columns:1fr}}
+.fam > *{background:var(--card);border-radius:22px;padding:26px;text-decoration:none;display:block;border:2px solid transparent;transition:border-color .2s}
+.fam .here{border-color:var(--lime)}
+.fam a:hover{border-color:var(--cyan)}
+.fam h3{margin:8px 0;font-size:24px;letter-spacing:-.03em;line-height:1.1}
+.fam p{margin:0;color:var(--muted)}
+
+/* Contact */
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+@media(max-width:900px){.contact{grid-template-columns:1fr}}
+form{background:var(--card);border-radius:26px;padding:30px;display:grid;gap:14px}
+form label{display:grid;gap:6px;font-size:14px;color:var(--muted);font-weight:600}
+form input,form select{background:#0d0920;border:2px solid transparent;border-radius:12px;padding:14px;color:var(--ink);font:500 16px "Bricolage Grotesque"}
+form input:focus,form select:focus{outline:none;border-color:var(--cyan)}
+
+footer{padding:60px var(--pad) 30px;border-top:1px solid rgba(255,255,255,.08);color:var(--muted);font-size:15px}
+footer .cols{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px}
+@media(max-width:900px){footer .cols{grid-template-columns:1fr}}
+footer h4{color:var(--ink);margin:0 0 14px}
+footer ul{list-style:none;padding:0;margin:0}footer li{margin-bottom:8px}
+footer a{color:var(--ink);text-decoration:none}
+footer a:hover{color:var(--cyan)}
+.news{display:flex;gap:8px;max-width:440px;margin-top:12px}
+.news input{flex:1;min-width:0;background:var(--card);border:0;border-radius:12px;padding:13px;color:var(--ink);font:500 15px "Bricolage Grotesque"}
+
+.js [data-reveal]{opacity:0;transform:translateY(30px) scale(.98);transition:opacity .7s,transform .7s cubic-bezier(.2,.8,.2,1)}
+.js [data-reveal].in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.server .xp i{width:62%}}
+</style>
 </head>
 <body>
-<header class="site-header">
-  <div class="wrap">
-    <a class="logo" href="#top" aria-label="Market Youniversity home"><b>MARKET</b><span><em>You</em>niversity</span></a>
-    <button class="menu-toggle" aria-label="Menu" onclick="document.querySelector('.nav').classList.toggle('open')">Menu</button>
-    <nav class="nav">
-      <a href="#individuals">For Individuals</a>
-      <a href="#organizations">For Organizations</a>
-      <a href="#community">Community</a>
-      <a href="#about">About</a>
-      <a class="btn btn-primary" href="#contact">Talk to us</a>
-    </nav>
-  </div>
-</header>
-<main id="top">
 
-<section class="hero">
-  <div class="wrap center">
-    <span class="eyebrow">A training hub for presenters and teams</span>
-    <h1>Learn it. Practice it. Own the room.</h1>
-    <p class="lead">Start free in our community, go deeper in a live workshop, and keep improving with people working on the same skills.</p>
-    <h3 style="margin-top:40px">Where are you starting?</h3>
-    <div class="grid-3" style="margin-top:40px;text-align:left">
-      <a class="door ind" href="#individuals"><h3>I have a big presentation coming up</h3><p class="muted">Get ready fast with a one-day workshop.</p><span class="go">Pitch Perfect &rarr;</span></a>
-      <a class="door ind" href="#individuals"><h3>I want to become a confident presenter</h3><p class="muted">Build lasting skill with practice and video feedback.</p><span class="go">Powerful Presentations &rarr;</span></a>
-      <a class="door org" href="#organizations"><h3>My team needs training</h3><p class="muted">Workshops, custom programs or an extra training team.</p><span class="go" style="color:var(--magenta)">For organizations &rarr;</span></a>
+<header>
+  <a class="logo" href="#top"><i>M</i>Market Youniversity</a>
+  <button class="menu" data-menu-toggle aria-expanded="false">Menu</button>
+  <nav class="main" data-nav>
+    <a href="#individuals">For individuals</a>
+    <a href="#organizations">For organizations</a>
+    <a href="#community">Community</a>
+    <a href="#about">About</a>
+    <a class="btn btn-lime" href="#contact">Talk to us</a>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="toast t1"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.7 7.6 1 12c1.7 4.4 6 7.5 11 7.5s9.3-3.1 11-7.5c-1.7-4.4-6-7.5-11-7.5Zm0 12.5a5 5 0 1 1 0-10 5 5 0 0 1 0 10Zm0-8a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/></svg></span><div><b>Eye Contact unlocked</b><small>New channel in the community</small></div></div>
+    <div class="toast t2"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 15a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3Zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.9V22h2v-3.1a7 7 0 0 0 6-6.9h-2Z"/></svg></span><div><b>Talk #3 recorded</b><small>Feedback from the room is in</small></div></div>
+    <div class="toast t3"><span class="ic"><svg viewBox="0 0 24 24"><path d="m12 2 3 6.5 7 .8-5.2 4.8 1.4 7L12 17.6 5.8 21l1.4-7L2 9.3l7-.8L12 2Z"/></svg></span><div><b>Pitch Perfect complete</b><small>Showcase channel unlocked</small></div></div>
+
+    <span class="pill mono"><b></b>A training hub for presenters &amp; teams</span>
+    <h1><span class="w1">Learn it.</span><span class="w2">Practice it.</span><span class="w3">Own the room.</span></h1>
+    <p class="lede">Start free in our community, level up in a live workshop, and keep improving with people working on the same skills.</p>
+    <p class="mono" style="color:var(--muted);margin-bottom:18px">Where are you starting?</p>
+    <div class="picker">
+      <a class="pick" href="#individuals" style="--c:var(--cyan)"><span class="key">A</span><h3>I have a big presentation coming up</h3><p>Get ready fast with one focused day.</p><span class="go">Pitch Perfect &rarr;</span></a>
+      <a class="pick" href="#individuals" style="--c:var(--lime)"><span class="key">B</span><h3>I want to become a confident presenter</h3><p>Two days of practice with video feedback.</p><span class="go">Powerful Presentations &rarr;</span></a>
+      <a class="pick" href="#organizations" style="--c:var(--pink)"><span class="key">C</span><h3>My team needs training</h3><p>Workshops, custom programs or an extra training team.</p><span class="go">For organizations &rarr;</span></a>
     </div>
-  </div>
-</section>
-<section class="section tight">
-  <div class="wrap">
-    <p class="clients-label">Our workshops have trained teams at</p>
-    <div class="clients"><span>Regeneron</span><span>BCB Bank</span><span>GS1</span></div>
-  </div>
-</section>
-<section class="section" id="individuals">
-  <div class="wrap">
-    <span class="eyebrow">Your path</span>
-    <h2>Start free. Go as far as you want.</h2>
-    <p class="lead">Every step builds on the last, and each one opens new channels in the community.</p>
-    <div class="ladder" style="margin-top:32px">
-      <div class="rung"><div><h3>Join the community</h3><p>Free. Meet other learners, ask a coach, see upcoming workshops.</p></div><a class="btn btn-ghost" href="#community">Join free</a></div>
-      <div class="rung"><div><h3>Learn at your own pace <span class="tag soon" style="margin:0 0 0 8px">Coming soon</span></h3><p>Self-paced lessons on structure, eye contact, voice and Q&amp;A.</p></div><a class="btn btn-ghost" href="#contact">Notify me</a></div>
-      <div class="rung"><div><h3>Pitch Perfect Presentations</h3><p>One live day in Colonia, NJ. Build and deliver a clear, confident presentation.</p></div><a class="btn btn-ghost" href="#contact">Get dates</a></div>
-      <div class="rung"><div><h3>Powerful Presentations</h3><p>Two live days. Present several times on video with feedback from the room.</p></div><a class="btn btn-primary" href="#contact">Get dates</a></div>
+  </section>
+
+  <div class="clients"><span class="mono">Workshops trusted by</span><span>Regeneron</span><span>BCB Bank</span><span>GS1</span></div>
+
+  <section id="individuals">
+    <div data-reveal>
+      <span class="mono kick">Your path</span>
+      <h2>Start free.<br><span class="grad">Level up as you go.</span></h2>
+      <p class="sub">Every level builds on the last, and each one opens new channels in the community.</p>
     </div>
-  </div>
-</section>
-<section class="section alt" id="community">
-  <div class="wrap hero-grid">
-    <div>
-      <span class="eyebrow">Community</span>
-      <h2>Skills unlock as you grow.</h2>
-      <p class="lead">Our Discord is the practice room. Finish a course and new channels open, like Eye Contact and Showcase, where you post a talk and get coached.</p>
-      <ul class="ticks">
-        <li>Upload a practice talk and get feedback from coaches and peers</li>
-        <li>New skill channels, like Eye Contact, unlock as you take and finish courses</li>
-        <li>Stay sharp between workshops with people working on the same thing</li>
+    <div class="map">
+      <div class="lvl" style="--c:var(--lime)" data-reveal><div class="node" style="background:var(--lime)">01</div><div class="panel"><div><div class="tagline"><span class="chip c">Free</span><span class="chip">Discord</span></div><h3>Join the community</h3><p>Meet other learners, ask a coach, see upcoming workshops.</p></div><a class="btn btn-line" href="#community">Join free</a></div></div>
+      <div class="lvl" style="--c:var(--cyan)" data-reveal><div class="node" style="background:var(--cyan)">02</div><div class="panel"><div><div class="tagline"><span class="chip c">Coming soon</span><span class="chip">Online</span></div><h3>Learn at your own pace</h3><p>Self-paced lessons on structure, eye contact, voice and Q&amp;A.</p></div><a class="btn btn-line" href="#contact">Notify me</a></div></div>
+      <div class="lvl" style="--c:var(--violet)" data-reveal><div class="node" style="background:var(--violet);color:#fff">03</div><div class="panel"><div><div class="tagline"><span class="chip c" style="color:#fff">1 day · live</span><span class="chip">Colonia, NJ</span></div><h3>Pitch Perfect Presentations</h3><p>Build and deliver a clear, confident presentation in one focused day.</p></div><a class="btn btn-line" href="#contact">Get dates</a></div></div>
+      <div class="lvl" style="--c:var(--pink)" data-reveal><div class="node" style="background:var(--pink)">04</div><div class="panel"><div><div class="tagline"><span class="chip c">2 days · live · recorded</span><span class="chip">Colonia, NJ</span></div><h3>Powerful Presentations</h3><p>Present several times on video and get feedback from the room. Unlocks Showcase and Alumni.</p></div><a class="btn btn-lime" href="#contact">Get dates</a></div></div>
+    </div>
+  </section>
+
+  <div class="unlock" id="community">
+    <div data-reveal>
+      <span class="mono kick" style="color:var(--lime)">Community</span>
+      <h2>Skills unlock<br>as you grow.</h2>
+      <ul class="perks">
+        <li><b>1</b><span>Join the Discord free and meet people working on the same skills.</span></li>
+        <li><b>2</b><span>Take a course and its skill channels open, like Eye Contact and Voice &amp; Pace.</span></li>
+        <li><b>3</b><span>Finish and unlock Showcase: post a recorded talk and get coached.</span></li>
       </ul>
-      <a class="btn btn-primary" href="#">Join the Discord free</a>
+      <a class="btn btn-lime" href="#">Join the Discord free &rarr;</a>
     </div>
-    <div class="discord" aria-label="Preview of the Market Youniversity Discord">
-        <div class="server">Market Youniversity Community</div>
-        <div class="group">Open to everyone</div>
-        <div class="ch"><span># welcome</span></div><div class="ch"><span># ask-a-coach</span></div><div class="ch"><span># upcoming-workshops</span></div>
-        <div class="group">Unlocked with a course</div>
-        <div class="ch on"><span># eye-contact</span></div><div class="ch locked"><span># voice-and-pace</span><svg viewBox="0 0 24 24" aria-label="locked"><path d="M17 9h-1V7a4 4 0 0 0-8 0v2H7a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-9a2 2 0 0 0-2-2Zm-7-2a2 2 0 0 1 4 0v2h-4Z"/></svg></div><div class="ch locked"><span># structure</span><svg viewBox="0 0 24 24" aria-label="locked"><path d="M17 9h-1V7a4 4 0 0 0-8 0v2H7a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-9a2 2 0 0 0-2-2Zm-7-2a2 2 0 0 1 4 0v2h-4Z"/></svg></div><div class="ch locked"><span># handling-q-and-a</span><svg viewBox="0 0 24 24" aria-label="locked"><path d="M17 9h-1V7a4 4 0 0 0-8 0v2H7a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-9a2 2 0 0 0-2-2Zm-7-2a2 2 0 0 1 4 0v2h-4Z"/></svg></div>
-        <div class="group">Unlocked when you finish</div>
-        <div class="ch locked"><span># showcase</span><svg viewBox="0 0 24 24" aria-label="locked"><path d="M17 9h-1V7a4 4 0 0 0-8 0v2H7a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-9a2 2 0 0 0-2-2Zm-7-2a2 2 0 0 1 4 0v2h-4Z"/></svg></div><div class="ch locked"><span># alumni</span><svg viewBox="0 0 24 24" aria-label="locked"><path d="M17 9h-1V7a4 4 0 0 0-8 0v2H7a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-9a2 2 0 0 0-2-2Zm-7-2a2 2 0 0 1 4 0v2h-4Z"/></svg></div>
-      </div>
-  </div>
-</section>
-<section class="section alt" id="organizations">
-  <div class="wrap">
-    <span class="eyebrow">For organizations</span>
-    <h2>Training your whole team?</h2>
-    <p class="lead">Bring the workshops in-house, or hire us as your training team for presentation, facilitation, leadership, customer service and more.</p>
-    <div class="grid-3" style="margin-top:32px">
-      <article class="card"><span class="tag org">Workshops</span><h3>Workshops for your team</h3><p>Pitch Perfect, Powerful Presentations or another program, delivered privately for your people, on site or online.</p></article>
-      <article class="card"><span class="tag org">Extended team</span><h3>Your extra training team</h3><p>Launching a product or updating material and your trainers are stretched? We work beside them to build and deliver it, as we do for GS1.</p></article>
-      <article class="card"><span class="tag org">Custom programs</span><h3>Custom program design</h3><p>Needs assessment, curriculum, facilitator guides and onboarding, built around your goals from a blank page.</p></article>
-    </div>
-    <h3 style="margin-top:56px">How we work</h3>
-    <div class="chevrons">
-      <div class="chev c1"><b>Analyze</b><small>Find the real skill gap</small></div>
-      <div class="chev c2"><b>Design</b><small>Plan the learning</small></div>
-      <div class="chev c3"><b>Develop</b><small>Build the material</small></div>
-      <div class="chev c4"><b>Implement</b><small>Deliver and coach</small></div>
-      <div class="chev c5"><b>Evaluate</b><small>Measure what stuck</small></div>
-    </div>
-    <h3 style="margin-top:56px">What we train</h3>
-    <div class="pills">
-      <span class="pill">Presentation skills</span><span class="pill">Facilitation and train-the-trainer</span><span class="pill">Leadership</span><span class="pill">Customer service</span><span class="pill">Sales and marketing communication</span><span class="pill">Branding</span><span class="pill">Onboarding and SOP training</span>
-    </div>
-    <p class="small muted" style="margin-top:12px">Don't see your topic? Ask us. We build new programs all the time.</p>
-    
-    <div class="btn-row"><a class="btn btn-primary" href="#contact">Book a free consultation</a></div>
-  </div>
-</section>
-<section class="section band-grad">
-  <div class="wrap center">
-    <p class="quote">"I used to dread public speaking. The techniques were practical, the sessions were engaging, and I recently got a standing ovation at work."</p>
-    <p class="quote-by">Participant name, role, company</p>
-    <span class="placeholder-note">Placeholder: replace with a real testimonial</span>
-  </div>
-</section>
-<section class="section">
-  <div class="wrap">
-    <h2 class="center">Need more than training?</h2>
-    <p class="lead center">Market Youniversity is one of three companies working together. When the need is bigger than training, we bring in the right team.</p>
-    <div class="family" style="margin-top:32px">
-      <article class="card here"><span class="tag">You are here</span><h3>Market Youniversity</h3><p>Training for individuals and organizations.</p></article>
-      <article class="card"><span class="tag">Branding</span><h3>Pinpoint Promotions &amp; Marketing</h3><p>Build the brand and marketing your people are trained to deliver.</p><a href="https://pinpointmypromotions.com" target="_blank" rel="noopener">pinpointmypromotions.com</a></article>
-      <article class="card"><span class="tag">Consulting</span><h3>Eric Duchin Consulting</h3><p>Strategy and business consulting when you need help beyond training.</p><a href="#">Visit Eric Duchin Consulting</a></article>
+    <div class="server" data-reveal>
+      <div class="top"><span>Market Youniversity</span><span class="mono" style="color:var(--lime)">Lvl 3</span></div>
+      <div class="xp"><i></i></div><div class="mono" style="color:var(--muted);font-size:11px">Progress to Showcase</div>
+      <div class="grp mono">Open to everyone</div>
+      <div class="ch"># welcome</div><div class="ch"># ask-a-coach</div>
+      <div class="grp mono">Unlocked with a course</div>
+      <div class="ch on"># eye-contact <span class="mono" style="font-size:11px">Unlocked</span></div>
+      <div class="ch on"># structure <span class="mono" style="font-size:11px">Unlocked</span></div>
+      <div class="ch lock"># voice-and-pace <svg viewBox="0 0 24 24"><path d="M17 9h-1V7a4 4 0 0 0-8 0v2H7a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-9a2 2 0 0 0-2-2Zm-7-2a2 2 0 0 1 4 0v2h-4Z"/></svg></div>
+      <div class="grp mono">Unlocked when you finish</div>
+      <div class="ch lock"># showcase <svg viewBox="0 0 24 24"><path d="M17 9h-1V7a4 4 0 0 0-8 0v2H7a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-9a2 2 0 0 0-2-2Zm-7-2a2 2 0 0 1 4 0v2h-4Z"/></svg></div>
+      <div class="ch lock"># alumni <svg viewBox="0 0 24 24"><path d="M17 9h-1V7a4 4 0 0 0-8 0v2H7a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-9a2 2 0 0 0-2-2Zm-7-2a2 2 0 0 1 4 0v2h-4Z"/></svg></div>
     </div>
   </div>
-</section>
-<section class="section alt" id="contact">
-  <div class="wrap hero-grid">
-    <div>
-      <span class="eyebrow">Talk to us</span>
-      <h2>Questions about where to start?</h2>
-      <p class="lead">Tell us your goal and we'll point you to the right step.</p>
+
+  <section id="organizations">
+    <div class="teams-head" data-reveal>
+      <div><span class="mono kick" style="color:var(--pink)">For organizations</span><h2>Training your<br><span class="grad">whole team?</span></h2></div>
+      <p class="sub">Bring the workshops in-house, or hire us as your training team for presentation, facilitation, leadership, customer service and more.</p>
     </div>
-    <form class="form form-card" onsubmit="return false">
-      <h3>Book a free consultation</h3>
+    <div class="modes">
+      <div class="mode" style="--c:var(--cyan)" data-reveal><span class="mono" style="color:var(--cyan)">Mode 01</span><h3>Workshops for your team</h3><p>Our programs, delivered privately for your people, on site or online.</p></div>
+      <div class="mode" style="--c:var(--lime)" data-reveal><span class="mono" style="color:var(--lime)">Mode 02</span><h3>Your extra training team</h3><p>Launching a product with stretched trainers? We build and deliver beside them, as we do for GS1.</p></div>
+      <div class="mode" style="--c:var(--pink)" data-reveal><span class="mono" style="color:var(--pink)">Mode 03</span><h3>Custom program design</h3><p>Needs assessment, curriculum, facilitator guides and onboarding.</p></div>
+    </div>
+    <div class="flow mono" data-reveal><span style="background:var(--violet)">Analyze</span><em>→</em><span>Design</span><em>→</em><span>Develop</span><em>→</em><span>Implement</span><em>→</em><span style="background:var(--lime);color:#14102a">Evaluate</span></div>
+    <div class="tops" data-reveal><span>Presentation skills</span><span>Facilitation</span><span>Leadership</span><span>Customer service</span><span>Sales communication</span><span>Branding</span><span>Onboarding &amp; SOPs</span><span style="border-style:dashed">+ ask us</span></div>
+    <a class="btn btn-lime" href="#contact" style="margin-top:34px">Book a free consultation &rarr;</a>
+  </section>
+
+  <section class="quote" style="padding-top:0">
+    <div class="bubble" data-reveal>“I used to dread public speaking. The techniques were practical, and last month I got a standing ovation at work.”</div>
+    <div class="who mono">Participant name · Role · Company</div>
+    <span class="ph mono">Placeholder testimonial</span>
+  </section>
+
+  <section id="about" style="padding-top:0">
+    <span class="mono kick">Need more than training?</span>
+    <h2>Meet the family.</h2>
+    <div class="fam">
+      <div class="here"><span class="mono" style="color:var(--lime)">You are here</span><h3>Market Youniversity</h3><p>Training for individuals and organizations.</p></div>
+      <a href="https://pinpointmypromotions.com" target="_blank" rel="noopener"><span class="mono" style="color:var(--cyan)">Branding &amp; marketing</span><h3>Pinpoint Promotions &amp; Marketing</h3><p>The brand your people are trained to deliver &rarr;</p></a>
+      <a href="#"><span class="mono" style="color:var(--pink)">Consulting</span><h3>Eric Duchin Consulting</h3><p>Strategy and business help beyond training &rarr;</p></a>
+    </div>
+  </section>
+
+  <section class="contact" id="contact" style="padding-top:0">
+    <div data-reveal>
+      <span class="mono kick">Talk to us</span>
+      <h2>Not sure which<br>level fits?</h2>
+      <p class="sub">Tell us your goal and we'll point you to the right step, for you or your team.</p>
+    </div>
+    <form onsubmit="return false" data-reveal>
       <label>Name<input type="text" autocomplete="name"></label>
       <label>Email<input type="email" autocomplete="email"></label>
       <label>Company (optional)<input type="text" autocomplete="organization"></label>
-      <label>I'm interested in
-        <select><option>A workshop for myself</option><option>Training for my team</option><option>Help building a training program</option><option>Something else</option></select>
-      </label>
-      <button class="btn btn-green" type="submit">Send</button>
+      <label>I'm interested in<select><option>A workshop for myself</option><option>Training for my team</option><option>Help building a training program</option><option>Something else</option></select></label>
+      <button class="btn btn-lime" type="submit" style="justify-content:center;margin-top:6px">Send &rarr;</button>
     </form>
-  </div>
-</section>
+  </section>
 </main>
-<footer class="site-footer" id="about">
-  <div class="wrap">
-    <div class="footer-grid">
-      <div>
-        <a class="logo" href="#top" style="color:#fff"><b>MARKET</b><span><em style="color:#9fb6ff">You</em>niversity</span></a>
-        <p style="margin-top:16px">Presentation, facilitation and workplace training for individuals and organizations. Based in Colonia, NJ.</p>
-        <form class="newsletter" onsubmit="return false">
-          <input type="email" placeholder="Email address" aria-label="Email address">
-          <button class="btn btn-green" type="submit">Get updates</button>
-        </form>
-        <p class="small" style="margin-top:8px">Be first to hear about new workshop dates and courses.</p>
-      </div>
-      <div>
-        <h4>Market Youniversity</h4>
-        <ul>
-          <li><a href="#individuals">For individuals</a></li>
-          <li><a href="#organizations">For organizations</a></li>
-          <li><a href="#community">Community</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Our family of companies</h4>
-        <ul>
-          <li><a href="https://pinpointmypromotions.com" target="_blank" rel="noopener">Pinpoint Promotions &amp; Marketing</a><br><span class="small">Branding and marketing</span></li>
-          <li><a href="#">Eric Duchin Consulting</a><br><span class="small">Business consulting</span></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-base"><span>&copy; 2026 Market Youniversity</span><span>Colonia, NJ</span></div>
+
+<footer>
+  <div class="cols">
+    <div><h4>Get new dates and courses first</h4><form class="news" onsubmit="return false" style="all:unset;display:flex;gap:8px;max-width:440px;margin-top:12px"><input type="email" placeholder="Email address" aria-label="Email address" style="flex:1;min-width:0;background:var(--card);border:0;border-radius:12px;padding:13px;color:var(--ink);font:500 15px 'Bricolage Grotesque'"><button class="btn btn-lime" type="submit" style="padding:12px 18px">Sign up</button></form></div>
+    <div><h4>Market Youniversity</h4><ul><li><a href="#individuals">For individuals</a></li><li><a href="#organizations">For organizations</a></li><li><a href="#community">Community</a></li><li><a href="#contact">Contact</a></li></ul></div>
+    <div><h4>Our family</h4><ul><li><a href="https://pinpointmypromotions.com" target="_blank" rel="noopener">Pinpoint Promotions &amp; Marketing</a></li><li><a href="#">Eric Duchin Consulting</a></li><li>Colonia, NJ</li></ul></div>
   </div>
 </footer>
-<div class="concept-bar" role="navigation" aria-label="Homepage concepts"><span>Concepts</span><a href="/">All</a><a href="/concept-1/" class="">1 · Two doors</a><a href="/concept-2/" class="">2 · Own the room</a><a href="/concept-3/" class="">3 · Your training team</a><a href="/concept-4/" class="on">4 · Learning path</a></div>
+
+<script src="/assets/common.js"></script>
 </body>
 </html>

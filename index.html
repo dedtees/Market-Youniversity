@@ -4,57 +4,70 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Market Youniversity · Homepage concepts</title>
-<meta name="description" content="Four homepage concepts for the new Market Youniversity.">
+<meta name="description" content="Four homepage concepts for the new Market Youniversity, each with its own positioning and visual direction.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500;700;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Fraunces:ital,wght@1,600&family=Instrument+Serif:ital@1&family=Bricolage+Grotesque:wght@800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html{overflow-x:clip}
+body{margin:0;background:#0c0c14;color:#fff;font-family:"Archivo",system-ui,sans-serif;font-size:17px;line-height:1.5}
+.wrap{max-width:1240px;margin:0 auto;padding:60px 20px 40px}
+h1{font-weight:900;font-stretch:115%;font-size:clamp(34px,7vw,104px);line-height:.88;letter-spacing:-.04em;margin:0 0 20px;text-transform:uppercase}
+h1 span{color:#d7ff3c}
+.intro{max-width:60ch;color:#b9b8c8;font-size:19px;margin:0 0 50px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+@media(max-width:860px){.grid{grid-template-columns:1fr}}
+.c{display:flex;flex-direction:column;text-decoration:none;color:inherit;border-radius:18px;overflow:hidden;border:1px solid #262636;transition:transform .2s,border-color .2s;background:#14141f}
+.c:hover{transform:translateY(-6px);border-color:#fff}
+.sw{height:240px;padding:26px;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden}
+.sw b{line-height:.9;letter-spacing:-.03em}
+.meta{padding:22px 26px 26px}
+.meta .n{font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#8d8ca0}
+.meta h2{margin:6px 0 8px;font-size:26px;font-weight:900;font-stretch:110%;letter-spacing:-.02em}
+.meta p{margin:0 0 6px;color:#b9b8c8}
+.meta p strong{color:#fff}
+.go{display:inline-block;margin-top:10px;font-weight:800}
+/* swatches */
+.s1{background:linear-gradient(90deg,#2335ff 50%,#ff2d7a 50%)}
+.s1 b{font-weight:900;font-stretch:125%;font-size:clamp(26px,4vw,44px);text-transform:uppercase;color:#fff}
+.s1 i{position:absolute;left:50%;top:44%;transform:translate(-50%,-50%);width:74px;height:74px;border-radius:50%;background:#d7ff3c;color:#0c0c14;display:grid;place-items:center;font-style:normal;font-weight:900;font-stretch:125%}
+.s2{background:radial-gradient(circle at 75% 30%,rgba(255,206,120,.35),transparent 50%),#0b0a09}
+.s2 b{font-family:"Fraunces",serif;font-style:italic;font-weight:600;font-size:52px;color:#ffb21e}
+.s2 s{font-family:"Fraunces",serif;color:#a79f92;font-size:28px;text-decoration-color:#ff3b30;text-decoration-thickness:3px}
+.s3{background:#f2ede3;color:#111}
+.s3 b{font-weight:900;font-size:46px;letter-spacing:-.06em}
+.s3 em{font-family:"Instrument Serif",serif;font-weight:400;background:#e6ff2e;padding:0 4px;letter-spacing:0}
+.s4{background:radial-gradient(circle at 20% 20%,rgba(139,108,255,.5),transparent 45%),radial-gradient(circle at 85% 60%,rgba(45,226,255,.3),transparent 45%),#120c2c}
+.s4 b{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:40px}
+.s4 .a{color:#2de2ff}.s4 .b{color:#8b6cff}.s4 .d{color:#b8ff3c}
+.notes{margin-top:50px;border-top:1px solid #262636;padding-top:24px;color:#8d8ca0;font-size:15px}
+</style>
 </head>
 <body>
-
-<main>
-<section class="hero">
-  <div class="wrap">
-    <span class="eyebrow">Market Youniversity · for review</span>
-    <h1>Four homepage concepts</h1>
-    <p class="lead">Same site structure, four different ways to position it. Open each one, then tell us which headline and order feels right. Pieces can be mixed.</p>
-    <div class="doors" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr))">
-      <a class="door ind" href="/concept-1/">
-        <span class="eyebrow">Concept 1</span>
-        <h3>Two doors</h3>
-        <p class="slab" style="font-size:1.15rem">"Training for people who present and teams that perform."</p>
-        <p class="muted"><strong>Leads with:</strong> Both audiences equally. The hero asks visitors to pick a door.</p>
-        <p class="muted"><strong>Why pick it:</strong> Clearest split between individuals and organizations.</p>
-        <span class="go">Open concept &rarr;</span>
-      </a>
-      <a class="door ind" href="/concept-2/">
-        <span class="eyebrow">Concept 2</span>
-        <h3>Own the room</h3>
-        <p class="slab" style="font-size:1.15rem">"Want to be a good great presenter?"</p>
-        <p class="muted"><strong>Leads with:</strong> Presentation skills first, for individuals and teams.</p>
-        <p class="muted"><strong>Why pick it:</strong> Strongest emotional hook. Other topics sit lower on the page.</p>
-        <span class="go">Open concept &rarr;</span>
-      </a>
-      <a class="door org" href="/concept-3/">
-        <span class="eyebrow">Concept 3</span>
-        <h3>Your training team</h3>
-        <p class="slab" style="font-size:1.15rem">"Your training team, without the hiring."</p>
-        <p class="muted"><strong>Leads with:</strong> Organizations first. Individuals get a smaller section.</p>
-        <p class="muted"><strong>Why pick it:</strong> Best if most revenue will come from corporate work.</p>
-        <span class="go">Open concept &rarr;</span>
-      </a>
-      <a class="door ind" href="/concept-4/">
-        <span class="eyebrow">Concept 4</span>
-        <h3>Learning path</h3>
-        <p class="slab" style="font-size:1.15rem">"Learn it. Practice it. Own the room."</p>
-        <p class="muted"><strong>Leads with:</strong> A hub: free community, then workshops, step by step.</p>
-        <p class="muted"><strong>Why pick it:</strong> Best showcases Discord and the future self-paced courses.</p>
-        <span class="go">Open concept &rarr;</span>
-      </a>
-    </div>
-    <p class="small muted" style="margin-top:32px">Placeholders: prices and dates are not set, testimonials are samples, forms don't send yet, and the Eric Duchin Consulting link needs its URL.</p>
+<div class="wrap">
+  <h1>Four ways to<br><span>launch</span> Market Youniversity</h1>
+  <p class="intro">Each concept pairs a different headline and page order with its own visual style. Click through, then tell us which one feels like you. Wording, layout and look can be mixed between them.</p>
+  <div class="grid">
+    <a class="c" href="/concept-1/">
+      <div class="sw s1"><i>OR</i><b>Build your own skills. &nbsp;Train your whole team.</b></div>
+      <div class="meta"><span class="n">Concept 1 · Split</span><h2>Two doors, poster style</h2><p><strong>Headline:</strong> Training for people who present and teams that perform.</p><p><strong>Feels like:</strong> loud, confident, impossible to misread. Electric blue and hot pink halves.</p><span class="go">Open concept 1 &rarr;</span></div>
+    </a>
+    <a class="c" href="/concept-2/">
+      <div class="sw s2"><s>good</s><b>great presenter?</b></div>
+      <div class="meta"><span class="n">Concept 2 · Spotlight</span><h2>Dark stage, presenter first</h2><p><strong>Headline:</strong> Want to be a good great presenter?</p><p><strong>Feels like:</strong> theatrical and premium. Spotlight, recording light, gold serif type.</p><span class="go">Open concept 2 &rarr;</span></div>
+    </a>
+    <a class="c" href="/concept-3/">
+      <div class="sw s3"><b>Your training team, <em>without</em> the hiring.</b></div>
+      <div class="meta"><span class="n">Concept 3 · Editorial</span><h2>Big type, corporate first</h2><p><strong>Headline:</strong> Your training team, without the hiring.</p><p><strong>Feels like:</strong> a sharp business magazine. Huge type, numbered sections, acid-yellow highlights.</p><span class="go">Open concept 3 &rarr;</span></div>
+    </a>
+    <a class="c" href="/concept-4/">
+      <div class="sw s4"><b><span class="a">Learn it.</span> <span class="b">Practice it.</span><br><span class="d">Own the room.</span></b></div>
+      <div class="meta"><span class="n">Concept 4 · Unlock</span><h2>A hub where skills level up</h2><p><strong>Headline:</strong> Learn it. Practice it. Own the room.</p><p><strong>Feels like:</strong> a game. Neon levels, unlock toasts, and the Discord front and center.</p><span class="go">Open concept 4 &rarr;</span></div>
+    </a>
   </div>
-</section>
-</main>
+  <p class="notes">Placeholders: prices and dates aren't set, testimonials are samples, forms don't send yet, and the Eric Duchin Consulting link needs its URL. Photos are taken from the earlier mockups.</p>
+</div>
+<script src="/assets/common.js"></script>
 </body>
 </html>
